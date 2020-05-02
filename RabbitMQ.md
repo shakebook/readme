@@ -1,10 +1,8 @@
-#通过Docker安装RabbitMQ
+# 通过Docker安装RabbitMQ
 
 以启动一个rabbitmq节点为例，两条命令可搞定:
 
 /www/rabbitmq目录可自定义，主要用于目录挂载
-
-`mkdir -p /www/rabbitmq`
 
 `mkdir -p /www/rabbitmq`
 
@@ -16,6 +14,9 @@
 
 `docker ps | grep rabbit`
 
-浏览器打开登录rabbitmq, 入口:http://localhost:15672
+浏览器打开登录rabbitmq, 入口: 
+
+http://localhost:15672
+
 默认用户名: guest 密码: guest
 
