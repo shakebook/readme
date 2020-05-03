@@ -15,3 +15,13 @@
 登录mysql：`mysql -u root -p`
 
 密码：123456
+
+**mysql基本管理**
+
+显示所有数据库：`show databases;`
+
+选择名称为mysql的数据库：`use mysql;`
+
+创建名称为testName的数据库：`create database testName`
+
+删除名称为testName的数据库：`drop database testName`
