@@ -55,3 +55,11 @@ sshd 表示SSH服务已启动
 
 
 查看是否可以正常连接：`ssh -T git@github.com`
+
+**四、git连接多个厂库**
+远程仓库名字geet-origin 
+`git remote add geet-origin git@gitee.com:yang-jf/yang_files.git`
+
+查看关联的远程仓库：`git remote -v`
+
+提交到远程仓库：`git push -f geet-origin master`　参数f首次建议加上

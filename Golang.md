@@ -24,3 +24,25 @@
 
 `go get github.com/go-redis/redis/v7`
 
+**vscode golang开发断点调试**
+```
+    "configurations": [
+        
+        {
+            "name": "Launch",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "remotePath": "",
+            "port": 2345,
+            "host": "127.0.0.1",
+            "program": "${workspaceRoot}",
+            "env": {
+                "GOPATH":"/home/yang/workspace"
+            },
+            "args": [],
+            "showLog": true
+        }
+    ]
+```
+
