@@ -19,3 +19,7 @@ GIT_TAG=”v1.2.0″
 go get -d -u github.com/golang/protobuf/protoc-gen-go
 git -C “$(go env GOPATH)”/src/github.com/golang/protobuf checkout $GIT_TAG
 go install github.com/golang/protobuf/protoc-gen-go
+
+
+编译输出go文件:
+protoc --go_out=plugins=grpc:.. service/account/proto/user.proto 
