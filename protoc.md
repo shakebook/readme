@@ -1,4 +1,17 @@
 ## protoc教程 ##
+
+**dowload url**: 
+
+`https://github.com/protocolbuffers/protobuf/releases`
+
+**protobuf install**
+
+`./configure`
+`make`
+`make check`
+`sudo make install`
+`sudo ldconfig` 
+
 问题表现
 
 编译protobuf的 .pb.go文件时报错，如 undefined: grpc.SupportPackageIsVersion6 或 undefined: grpc.ClientConnInterface
