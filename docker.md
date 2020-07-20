@@ -1,5 +1,39 @@
 # docker
 
+**install docker**
+`sudo apt-get update`
+
+```
+sudo apt-get install
+
+apt-transport-https ca-certificates
+
+curl gnupg-agent software-properties-common
+
+```
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+```
+
+```
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable
+
+apt-cache madison docker-ce
+
+sudo docker run hello-world
+
+```
+
+**ohter install method**
+
+```
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
 1.Docker 要求 Ubuntu 系统的内核版本高于 3.10
 
 **2.通过 uname -r 命令查看你当前的内核版本:**
