@@ -6,6 +6,10 @@
 
 **2、run**
 
-`tar -xzvf etcd-v3.4.10-linux-amd64.tar.gz && \ sudo mkdir -p /usr/local/etcd && \ mv etcd-v3.4.10-linux-amd64/* /usr/local/etcd`
+`tar -xzvf etcd-v3.4.10-linux-amd64.tar.gz && 
+
+sudo mkdir -p /usr/local/etcd && 
+
+mv etcd-v3.4.10-linux-amd64/* /usr/local/etcd`
 
 `cd /usr/local/etcd && ./etcd`
