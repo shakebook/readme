@@ -6,7 +6,7 @@
 
 运行容器：
 
-``
+```
 docker run --name dev-redis -p 6379:6379 -v /usr/data/redis:/data -d redis:latest redis-server --appendonly yes
 ```
 
