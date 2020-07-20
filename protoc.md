@@ -16,6 +16,8 @@
 
 `sudo ldconfig` 
 
+`protoc --version`
+
 
 问题表现
 
