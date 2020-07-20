@@ -7,10 +7,15 @@
 **protobuf install**
 
 `./configure`
+
 `make`
+
 `make check`
+
 `sudo make install`
+
 `sudo ldconfig` 
+
 
 问题表现
 
