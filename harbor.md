@@ -1,5 +1,7 @@
 # harbor#
 
+请提前安装docker-compose, 详见docker-compose教程
+
 1. 添加DNS,供内局域网使用：
 
 ```
