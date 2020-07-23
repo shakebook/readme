@@ -1,4 +1,4 @@
-# ubuntu install etcd
+# linux install etcd
 
 **1、download**
 
