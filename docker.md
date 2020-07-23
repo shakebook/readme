@@ -102,3 +102,40 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 **15.进入容器：**
 
 `docker exec -it 容器id /bin/bash`
+
+
+**docker制作镜像**
+
+有2中方式：1、源码拷贝 2、可执行程序拷贝，推荐使用2，第一种需要go mod,go mod download速度会很慢
+
+把程序`go build -o` 输出到Dockerfile相同目录中,Dockerfile定义如下：
+
+```
+FROM centos:7
+
+ADD . /
+
+RUN chmod 777 /orm
+
+ENV PARAMS=""
+
+ENTRYPOINT ["sh","-c","/orm $PARAMS"]
+
+```
+
+解释：
+
+```
+
+FROM centos:7 # 基础镜像
+
+ADD . /  # 从Dockerfile所在目录中把可执行程序拷贝到docker daemon 根目录/
+
+RUN chmod 777 /orm #添加文件权限
+
+
+ENV PARAMS="" #从命令行中获取参数
+
+ENTRYPOINT ["sh","-c","/orm $PARAMS"] # 执行命令
+
+```
