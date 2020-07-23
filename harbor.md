@@ -65,4 +65,33 @@ harbor_admin_password: 123456
 
 密码：123456
 
+9. docker 登录私有仓库hub.images.com
+
+docker login hub.images.com
+
+userName :admin , password: 123456
+
+10. 推送镜像到私有仓库
+
+```
+docker tag dev-orm hub.images.com/yang-files/orm
+
+docker push hub.images.com/yang-files/orm:dev
+
+```
+
+解释：
+
+dev-orm:制作好的本地镜像tag（通过`docker build -t dev-orm .`）
+
+yang-files: harbor中的项目名称
+
+orm : 项目中的镜像tag
+
+11. 运行在harbor私有仓库的镜像
+
+`bocker run --name harbor-orm -p 9004:9004 -d hub.images.com/yang-files/orm`
+
+
+
 
