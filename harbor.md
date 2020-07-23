@@ -59,24 +59,24 @@ harbor_admin_password: 123456
 
 7. 访问：`https://hub.images.com`
 
-8. 登录：
-
-用户名：admin
-
-密码：123456
+8. 登录： 用户名：admin 密码：123456
 
 9. docker 登录私有仓库hub.images.com
+
+```
 
 docker login hub.images.com
 
 userName :admin , password: 123456
+
+```
 
 10. 推送镜像到私有仓库
 
 ```
 docker tag dev-orm hub.images.com/yang-files/orm
 
-docker push hub.images.com/yang-files/orm:dev
+docker push hub.images.com/yang-files/orm
 
 ```
 
