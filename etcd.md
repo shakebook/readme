@@ -12,4 +12,6 @@
 
 `mv etcd-v3.4.10-linux-amd64/* /usr/local/etcd`
 
-`cd /usr/local/etcd && ./etcd`
+`cd /usr/local/etcd `
+
+`./etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379 --listen-peer-urls http://0.0.0.0:2380`
