@@ -139,3 +139,60 @@ ENV PARAMS="" #从命令行中获取参数
 ENTRYPOINT ["sh","-c","/orm $PARAMS"] # 执行命令
 
 ```
+
+**docker虚拟机**
+
+在做开发的时候，我们有时候需要搭建集群，传统的方式通过Hyper-V、VMware、VirtualBox、XenServer、Kvm等方式，
+
+docker横空出世后，这些工具也将成为历史。下面我门使用docker如何创建有固定ip的虚拟机。
+
+你可以制作你喜欢的系统镜像，这里我以centos为例子，
+
+1. 登录hub.docker.com, 拉取镜像 
+
+`docker login hub.docker.com`
+
+`docker pull centos`
+
+这里默认是centos:latest,如果hub.docker.com没有你需要的版本，你可以自己制作一个制定版本的镜像。
+
+2. 创建自定义网络类型，并指定网段：
+
+查看已有的网络类型：
+
+`docker network ls`
+
+创建网络，并指定网段：
+
+`docker network create --subnet=182.182.0.0/24 cluster`
+
+网段：`182.182.0.0/24` 网络类型名字：cluster
+
+根据centos镜像启动一个容器：
+
+`docker run -itd --name box1 --hostname box1 --net cluster --ip 182.182.0.11 centos`
+
+‵‵`
+解释：
+
+-itd: 以交互命令方式启动，可以使用 -it /bin/bash方式进入容器，-d后台运行
+
+--name:容器的名称
+
+--hostname: 容器里面系统主机的名称
+
+--net: 网络类型名称
+
+--ip: 容器里面系统指定静态ip
+
+centos: 镜像tag
+
+```
+
+进入容器：
+
+`docker exec -it box1 /bin/bash`
+
+查看网络是否正常：`yum install vim` 如果不能下载，看看是否网段是否错误
+
+查看hosts: `vim /etc/hosts`
