@@ -57,6 +57,19 @@ harbor_admin_password: 123456
 
 6. 安装：`./install.sh`
 
+7. 修改docker仓库: `vim /etc/docker/daemon.json`
+
+```
+{
+  "registry-mirrors": ["https://6dun7rvg.mirror.aliyuncs.com"],
+  "insecure-registries" : [ 
+        "hub.images.com",
+        "hub.docker.com"
+   ]   
+}
+
+```
+
 7. 访问：`https://hub.images.com`
 
 8. 登录： 用户名：admin 密码：123456

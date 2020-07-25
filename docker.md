@@ -148,27 +148,19 @@ docker横空出世后，这些工具也将成为历史。下面我门使用docke
 
 你可以制作你喜欢的系统镜像，这里我以centos为例子，
 
-1. 登录hub.docker.com, 拉取镜像 
+1. 登录hub.docker.com: `docker login hub.docker.com` 这里也可以是你的私有仓库
 
-`docker login hub.docker.com`
-
-`docker pull centos`
+拉取镜像: `docker pull centos`
 
 这里默认是centos:latest,如果hub.docker.com没有你需要的版本，你可以自己制作一个制定版本的镜像。
 
 2. 创建自定义网络类型，并指定网段：
 
-查看已有的网络类型：
+查看已有的网络类型： `docker network ls`
 
-`docker network ls`
+删除已有网络类型： `docker network rm 网络类型名称`
 
-删除已有网络类型：
-
-`docker network rm 网络类型名称`
-
-创建网络，并指定网段：
-
-`docker network create --subnet=182.182.0.0/24 cluster`
+创建网络，并指定网段：`docker network create --subnet=182.182.0.0/24 cluster`
 
 网段：`182.182.0.0/24` 网络类型名字：cluster
 
@@ -176,7 +168,7 @@ docker横空出世后，这些工具也将成为历史。下面我门使用docke
 
 `docker run -itd --name box1 --hostname box1 --net cluster --ip 182.182.0.11 centos`
 
-‵‵`
+```
 解释：
 
 -itd: 以交互命令方式启动，可以使用 -it /bin/bash方式进入容器，-d后台运行
@@ -193,9 +185,7 @@ centos: 镜像tag
 
 ```
 
-进入容器：
-
-`docker exec -it box1 /bin/bash`
+进入容器： `docker exec -it box1 /bin/bash`
 
 查看网络是否正常：`yum install vim` 如果不能下载，看看是否网段是否错误
 
