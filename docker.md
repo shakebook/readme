@@ -162,6 +162,10 @@ docker横空出世后，这些工具也将成为历史。下面我门使用docke
 
 `docker network ls`
 
+删除已有网络类型：
+
+`docker network rm 网络类型名称`
+
 创建网络，并指定网段：
 
 `docker network create --subnet=182.182.0.0/24 cluster`
