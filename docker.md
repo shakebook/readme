@@ -190,3 +190,11 @@ centos: 镜像tag
 查看网络是否正常：`yum install vim` 如果不能下载，看看是否网段是否错误
 
 查看hosts: `vim /etc/hosts`
+
+docker ps -q
+
+停止所有运行的容器：`docker stop $(docker ps -q)`
+
+删除所有容器：`docker rm $(docker ps -aq)`
+
+删除所有镜像: docker rmi $(docker images -q) -f

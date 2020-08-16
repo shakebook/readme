@@ -105,6 +105,8 @@ orm : 项目中的镜像tag
 
 `bocker run --name harbor-orm -p 9004:9004 -d hub.images.com/yang-files/orm`
 
+12. 遇到登录用户名或密码错误，请删掉挂载目录/data/*,重新./install.sh,查看挂载目录vim /usr/local/harbor/harbor.yml
+
 
 
 
