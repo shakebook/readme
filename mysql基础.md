@@ -62,3 +62,29 @@ default-character-set=utf8
 创建名称为testName的数据库：`create database testName`
 
 删除名称为testName的数据库：`drop database testName`
+
+**mysql数据备份**
+
+导出数据：`mysqldump -uroot -p --all-databases > /var/lib/sqlfile.sql`
+
+导入数据：`mysql -u root -p && source /var/lib/sqlfile.sql`
+
+如果是目标是远程，使用scp即可。
+
+
+**修改数据库名称**
+
+```
+#!/bin/bash
+
+mysql -uroot -p'!(2!AFLP?)_+JD%' -e 'create database if not exists blog'
+list_table=$(mysql -uroot -p'!(2!AFLP?)_+JD%' -Nse "select table_name from information_schema.TABLES where TABLE_SCHEMA='yang_files'")
+
+for table in $list_table
+do
+    mysql -uroot -p'!(2!AFLP?)_+JD%' -e "rename table yang_files.$table to blog.$table"
+done
+
+```
+
+数据库名称由yang_files改为blog
