@@ -10,6 +10,8 @@
 
 `git config --global user.email "852264915@qq.com"`
 
+***
+
 **centos源码安装方式**
 
 源码地址：https://mirrors.edge.kernel.org/pub/software/scm/git/
@@ -41,6 +43,8 @@ source /etc/profile
 git --version
 
 ```
+
+***
 
 **二、安装 SSH：**
 
