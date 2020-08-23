@@ -10,44 +10,41 @@
 
 `git config --global user.email "852264915@qq.com"`
 
-***
-
-源码安装方式：
+**centos源码安装方式**
 
 源码地址：https://mirrors.edge.kernel.org/pub/software/scm/git/
 
 ‵``
-# 下载
+
+下载:
 wget -O /tmp/git-2.8.0.tar.gz https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.8.0.tar.gz 
-# 解压
+
+解压
 cd /tmp && tar -zxf git-2.8.0.tar.gz -C /tmp/
 
-# 安装编译依赖
+安装编译依赖:
 yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
 
-# 检验相关依赖，设置安装路径
+
+检验相关依赖，设置安装路径:
 ./configure --prefix=/usr/local/git
 
-# 编译安装
-make && make install
 
-# 配置全局环境变量
+编译安装: make && make install
 
-# 删除已有的 git
-yum remove git
+配置全局环境变量
 
-# 配置环境变量
-vim /etc/profile
+删除已有的git: yum remove git
 
-# GIT_HOME
+配置环境变量: vim /etc/profile
+
+GIT_HOME
 GIT_HOME=/usr/local/git
 export PATH=$PATH:$GIT_HOME/bin
 
-# 刷新
-source /etc/profile
+刷新: source /etc/profile
 
-# 查看版本
-git --version
+查看版本：git --version
 
 ```
 
