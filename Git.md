@@ -14,7 +14,7 @@
 
 源码地址：https://mirrors.edge.kernel.org/pub/software/scm/git/
 
-‵``
+```
 
 wget -O /tmp/git-2.8.0.tar.gz https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.8.0.tar.gz 
 
