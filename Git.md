@@ -106,4 +106,23 @@ git merge origin/master
 git pull geet master --allow-unrelated-histories
 
 ```
+**git拉取指定文件夹deploy/exec**
+
+```
+
+mkdir blog
+
+cd blog/
+
+git init
+
+git remote add origin ssh://git@47.108.136.149:52/yang/blog.git
+
+git config core.sparsecheckout true
+
+echo "deploy/exec" >> .git/info/sparse-checkout
+
+git pull origin master
+
+```
 
