@@ -45,4 +45,6 @@
         }
     ]
 ```
+**后台运行go程序**
 
+`nohup ./main >/dev/null 2>/dev/null &`
