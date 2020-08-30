@@ -48,3 +48,27 @@
 **后台运行go程序**
 
 `nohup ./main >/dev/null 2>/dev/null &`
+
+```
+
+#!/bin/bash
+
+pids="`ps -ef |grep blog |grep -v -e grep -e killkeys |awk '{print $2}'`"
+if [ -z "$pids" ];then
+  #echo empty
+  exit 0
+fi
+echo "kill pid:"$pids
+kill -9 $pids &&
+
+
+cd /opt/blog && git pull origin master && cd /opt/blog/deploy/exec
+nohup ./blog-gateway >/dev/null 2>/dev/null &
+nohup ./blog-account >/dev/null 2>/dev/null &
+nohup ./blog-file >/dev/null 2>/dev/null &
+nohup ./blog-orm >/dev/null 2>/dev/null &
+nohup ./blog-auther >/dev/null 2>/dev/null &
+
+
+
+```

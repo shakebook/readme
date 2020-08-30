@@ -10,9 +10,7 @@
 
 ```
 
-docker run -itd --name mysql_master -p 13306:3306 -v /usr/local/mysql/data:/var/lib/mysql -v /usr/local/mysql/conf.d:/etc/mysql/conf.d -e 
-
-MYSQL_ROOT_PASSWORD=123456 mysql
+docker run -itd --name mysql_master -p 13306:3306 -v /usr/local/mysql/data:/var/lib/mysql -v /usr/local/mysql/conf.d:/etc/mysql/conf.d -e \ MYSQL_ROOT_PASSWORD=123456 mysql
 
 ```
 
@@ -77,12 +75,12 @@ default-character-set=utf8
 ```
 #!/bin/bash
 
-mysql -uroot -p'!(2!AFLP?)_+JD%' -e 'create database if not exists blog'
-list_table=$(mysql -uroot -p'!(2!AFLP?)_+JD%' -Nse "select table_name from information_schema.TABLES where TABLE_SCHEMA='yang_files'")
+mysql -uroot -p 123456 -e 'create database if not exists blog'
+list_table=$(mysql -uroot -p 123456 -Nse "select table_name from information_schema.TABLES where TABLE_SCHEMA='yang_files'")
 
 for table in $list_table
 do
-    mysql -uroot -p'!(2!AFLP?)_+JD%' -e "rename table yang_files.$table to blog.$table"
+    mysql -uroot -p 123456 -e "rename table yang_files.$table to blog.$table"
 done
 
 ```

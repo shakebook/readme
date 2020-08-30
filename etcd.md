@@ -14,4 +14,6 @@
 
 `cd /usr/local/etcd `
 
-`./etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379 --listen-peer-urls http://0.0.0.0:2380`
+`./etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379 --listen-peer-urls http://0.0.0.0:2380 >/dev/null 2>/dev/null & `
+
+
