@@ -24,10 +24,10 @@
 
 `go get github.com/go-redis/redis/v7`
 
-**vscode golang开发断点调试**
+**vscode golang开发断点调试launch.json**
 ```
+    "justMyCode":true,
     "configurations": [
-        
         {
             "name": "Launch",
             "type": "go",
@@ -36,11 +36,11 @@
             "remotePath": "",
             "port": 2345,
             "host": "127.0.0.1",
-            "program": "${workspaceRoot}",
+            "program": "/home/yang/work/blog/service/account",
             "env": {
-                "GOPATH":"/home/yang/workspace"
+                "GOPATH":"/home/yang/go"
             },
-            "args": [],
+            "args": ["-p","/home/yang/work/blog/deploy/prod/conf.yaml"],
             "showLog": true
         }
     ]
