@@ -198,3 +198,11 @@ docker ps -q
 删除所有容器：`docker rm $(docker ps -aq)`
 
 删除所有镜像: docker rmi $(docker images -q) -f
+
+docker使用技巧--解决中文乱码的问题 :
+
+1.进入docker，执行 vim /etc/profile 打开profile文件
+
+2.将“export LANG="C.UTF-8”命令添加在profile文件最后,保存退出
+
+3.执行 source /etc/profile ，即可正常显示中文
