@@ -1,17 +1,5 @@
 # kubernetes
 
-**docker启动三台机子**
-
-```
-docker run -itd --name box1 --hostname box1 --privileged=true --net cluster --ip 182.182.0.11 centos /sbin/init
-docker run -itd --name box2 --hostname box2 --privileged=true --net cluster --ip 182.182.0.12 centos /sbin/init
-docker run -itd --name box3 --hostname box3 --privileged=true --net cluster --ip 182.182.0.13 centos /sbin/init
-
-yum install passwd
-
-passwd root
-
-```
 **安装ssh**
 
 https://phoenixnap.com/kb/how-to-enable-ssh-centos-7
@@ -85,5 +73,51 @@ systemctl stop firewalld
 systemctl disable firewalld
 iptables -F && iptables -X && iptables -F -t nat && iptables -X -t nat
 iptables -P FORWARD ACCEPT
+
+```
+
+**kubernetes 拉取habor私有镜像**
+
+创建名为k8s-harbor-image-pull-secrets的secret:
+
+```
+kubectl create secret docker-registry k8s-harbor-image-pull-secrets \
+--docker-server=https://yangjiafeng.com:6664 \
+--docker-username=admin \
+--docker-password='123456'
+
+kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "k8s-harbor-image-pull-secrets"}]}'
+
+```
+
+在kubernetes部署中使用secret：
+
+```
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  labels:
+    app: api
+spec:
+  selector:
+    matchLabels:
+      app: api
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      imagePullSecrets:
+        - name: k8s-harbor-image-pull-secrets
+      containers:
+        - name: api
+          image: yangjiafeng.com:6664/test/api-service
+          ports:
+            - name: api-service
+              containerPort: 8080
+
 
 ```
