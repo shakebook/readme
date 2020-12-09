@@ -2,6 +2,12 @@
 
 **install docker**
 
+安装文档： `https://docs.docker.com/engine/install/centos/`
+
+国内镜像：
+
+`sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo`
+
 `sudo apt-get update`
 
 ```
@@ -103,6 +109,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 `docker exec -it 容器id /bin/bash`
 
+**重启所有容器：**
+`docker restart $(docker ps -q)`
 
 **docker制作镜像**
 
@@ -206,3 +214,39 @@ docker使用技巧--解决中文乱码的问题 :
 2.将“export LANG="C.UTF-8”命令添加在profile文件最后,保存退出
 
 3.执行 source /etc/profile ，即可正常显示中文
+
+**docker挂载配置文件**
+
+`docker run -itd --name blog-account -p 9001:9001 -v /opt/work/conf.yaml:/opt/work/conf.yaml -e PARAMS="-c /opt/work/conf.yaml" yangjiafeng.com:6664/blog/account`
+
+**docker配置sock5代理翻墙**
+
+创建docker服务插件目录:
+
+`sudo mkdir -p /etc/systemd/system/docker.service.d`
+
+创建一个名为http-proxy.conf的文件:
+
+`sudo touch /etc/systemd/system/docker.service.d/http-proxy.conf `
+
+编辑http-proxy.conf的文件:
+
+`sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf`
+
+写入内容(将代理ip和代理端口修改成你自己的):
+```
+[Service]
+Environment="HTTP_PROXY=socks5://127.0.0.1:7070/"
+```
+
+重新加载服务程序的配置文件:
+
+`sudo systemctl daemon-reload`
+
+重启docker:
+
+`sudo systemctl restart docker`
+
+验证是否配置成功:
+
+`systemctl show --property=Environment docker`

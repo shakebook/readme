@@ -35,3 +35,4 @@ kubectl get crd | grep istio
 kubectl get crd | grep istio | wc -l
 ```
 kubectl get crd | grep istio | wc -l输出53，crd创建成功
+docker tag yangjiafeng.com:6664/istio/gcr.io/istio-release/kubectl:release-1.2-latest-daily gcr.io/istio-release/kubectl:release-1.2-latest-daily
