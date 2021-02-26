@@ -5,6 +5,6 @@ npm ERR! It is likely you do not have the permissions to access this file as the
 npm ERR!the command again as root/Administrator.:
 `npm config set prefix '~/.npm-packages'`
 
-# vue templeate surport typescript..
+# vue templeate surport typescript
 in vscode add:
-"vetur.experimental.templateInterpolationService": true,
+`"vetur.experimental.templateInterpolationService": true,`
